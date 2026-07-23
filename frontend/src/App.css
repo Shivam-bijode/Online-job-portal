@@ -1,0 +1,560 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ================= PROFESSIONAL NAVBAR ================= */
+
+nav {
+  height: 72px;
+  background: white;
+  color: #1e3a8a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+nav span {
+  color: #333;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+nav button {
+  padding: 10px 18px;
+  margin-left: 0;
+  border: 1px solid #1e3a8a;
+  border-radius: 6px;
+  cursor: pointer;
+  background: white;
+  color: #1e3a8a;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background: #1e3a8a;
+  color: white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: #dbeafe;
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box input {
+  width: 500px;
+  padding: 15px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.search-box button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #1e3a8a;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ================= FILTERS ================= */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  width: 200px;
+  padding: 12px 15px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #1e3a8a;
+}
+
+/* ================= JOBS ================= */
+
+.jobs-section {
+  padding: 50px 60px;
+}
+
+.jobs-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.job-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+  gap: 25px;
+}
+
+/* ================= PROFESSIONAL JOB CARDS ================= */
+
+.job-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.job-card h3 {
+  color: #1e3a8a;
+  font-size: 21px;
+  margin-bottom: 18px;
+}
+
+.job-card p {
+  margin: 12px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+.job-card button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  background: #1e3a8a;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.job-card button:hover {
+  background: #172554;
+  transform: scale(1.02);
+}
+}
+
+/* ================= JOB DETAILS PAGE ================= */
+
+.job-details-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 60px;
+  background: #f4f6f8;
+}
+
+.back-button {
+  width: auto;
+  padding: 12px 20px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.back-button:hover {
+  background: #172554;
+}
+
+.job-details-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.job-details-card h1 {
+  color: #1e3a8a;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.job-details-card h2 {
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.job-details-card p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+
+.job-details-card ul {
+  padding-left: 25px;
+}
+
+.job-details-card li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.apply-details-button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 6px;
+  background: #1e3a8a;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.apply-details-button:hover {
+  background: #172554;
+}
+
+/* ================= MODAL BACKGROUND ================= */
+
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: auto;
+  padding: 20px;
+
+  z-index: 1000;
+}
+
+/* ================= MODAL BOX ================= */
+
+.login-box {
+  background: white;
+
+  width: 400px;
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= MODAL HEADING ================= */
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.login-box h3 {
+  margin-bottom: 15px;
+}
+
+.login-box p {
+  margin: 10px 0;
+}
+
+/* ================= INPUTS ================= */
+
+.login-box input,
+.login-box select,
+.login-box textarea {
+  width: 100%;
+
+  padding: 12px;
+
+  margin: 8px 0;
+
+  border: 1px solid #bbb;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+}
+
+.login-box textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ================= MODAL BUTTONS ================= */
+
+.login-box button {
+  width: 100%;
+
+  padding: 12px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #1e3a8a;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.login-box button:hover {
+  background: #172554;
+}
+
+/* ================= APPLICATION CARD ================= */
+
+.application-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+/* ================= SCROLLBAR ================= */
+
+.login-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.login-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.login-box::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 10px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+
+  nav {
+    padding: 0 20px;
+  }
+
+  nav h2 {
+    font-size: 22px;
+  }
+
+  nav button {
+    padding: 8px 10px;
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .jobs-section {
+    padding: 30px 20px;
+  }
+
+  .login-box {
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+
+      /* Mobile Navbar */
+
+      nav {
+        height: auto;
+        min-height: 70px;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav > div {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      nav span {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+      }
+
+      nav button {
+        margin-left: 0;
+      }
+
+      /* Mobile Filters */
+
+      .filters {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .filters select {
+        width: 100%;
+        max-width: 500px;
+      }
+  }
+
+  /* JOB DETAILS MOBILE */
+
+  .job-details-page {
+    padding: 25px 15px;
+  }
+
+  .job-details-card {
+    padding: 25px 20px;
+  }
+
+  .job-details-card h1 {
+    font-size: 28px;
+  }
+
+  .job-details-card h2 {
+    font-size: 22px;
+  }
+
+  .job-details-card p {
+    font-size: 15px;
+  }
+}
+/* ================= DASHBOARD DESIGN ================= */
+
+.applications-box {
+  width: 700px;
+  max-width: 95%;
+  padding: 30px;
+}
+
+.applications-box h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.applications-box h3 {
+  color: #1e3a8a;
+  margin-top: 20px;
+}
+
+.applications-box hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.applications-box .application-card {
+  transition: 0.3s;
+}
+
+.applications-box .application-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.error-message {
+  text-align: center;
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 500px;
+}
