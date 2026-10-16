@@ -77,7 +77,7 @@ function App() {
   // FETCH JOBS
   useEffect(() => {
 
-fetch("http://localhost:8081/api/jobs")
+fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs")
 
       .then((response) => response.json())
       .then((data) => {
@@ -114,7 +114,7 @@ fetch("http://localhost:8081/api/jobs")
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+       fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -156,7 +156,7 @@ fetch("http://localhost:8081/api/jobs")
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -197,7 +197,7 @@ fetch("http://localhost:8081/api/jobs")
   const handleViewUsers = async () => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs")
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs")
       );
 
       if (response.ok) {
@@ -224,7 +224,7 @@ const handleDeleteUser = async (userId) => {
 
   try {
     const response = await fetch(
-      fetch("http://localhost:8081/api/jobs"),
+      fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
       {
         method: "DELETE",
       }
@@ -259,7 +259,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "PUT",
           headers: {
@@ -322,7 +322,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "POST",
           body: formData,
@@ -350,7 +350,7 @@ const handleDeleteUser = async (userId) => {
   const handleMyApplications = async () => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs")
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs")
       );
 
       if (response.ok) {
@@ -396,7 +396,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -443,7 +443,7 @@ const handleDeleteUser = async (userId) => {
   const handleEmployerJobs = async () => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs")
+       fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs")
       );
 
       if (response.ok) {
@@ -468,7 +468,7 @@ const handleDeleteUser = async (userId) => {
   const handleViewApplications = async (jobId) => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs")
+       fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs")
       );
 
       if (response.ok) {
@@ -493,7 +493,7 @@ const handleDeleteUser = async (userId) => {
   ) => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "PUT",
         }
@@ -536,7 +536,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "DELETE",
         }
@@ -582,7 +582,7 @@ const handleDeleteUser = async (userId) => {
   const handleUpdateJob = async () => {
     try {
       const response = await fetch(
-        fetch("http://localhost:8081/api/jobs"),
+        fetch("https://online-job-portal-backend-u9bx.onrender.com/api/jobs"),
         {
           method: "PUT",
           headers: {
@@ -1204,7 +1204,7 @@ const handleDeleteUser = async (userId) => {
                         <button
                           onClick={() =>
                             window.open(
-                              `https://localhost:8081/api/jobs/api/applications/resume/${encodeURIComponent(
+                              `https://online-job-portal-backend-u9bx.onrender.com/api/jobs/api/applications/resume/${encodeURIComponent(
                                 application.resumeName
                               )}`,
                               "_blank"
