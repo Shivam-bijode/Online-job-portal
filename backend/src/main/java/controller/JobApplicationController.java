@@ -16,7 +16,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/applications")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://online-job-portal-azure.vercel.app"
+})
 public class JobApplicationController {
 
     private final JobApplicationService service;
