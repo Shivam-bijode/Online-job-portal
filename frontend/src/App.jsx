@@ -76,7 +76,9 @@ function App() {
 
   // FETCH JOBS
   useEffect(() => {
-    fetch("http://localhost:8081/api/jobs")
+
+fetch("http://localhost:8081/api/jobs")
+
       .then((response) => response.json())
       .then((data) => {
         setJobs(data);
@@ -112,7 +114,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/register",
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -154,7 +156,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/login",
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -195,7 +197,7 @@ function App() {
   const handleViewUsers = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users"
+        fetch("http://localhost:8081/api/jobs")
       );
 
       if (response.ok) {
@@ -222,7 +224,7 @@ const handleDeleteUser = async (userId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/users/${userId}`,
+      fetch("http://localhost:8081/api/jobs"),
       {
         method: "DELETE",
       }
@@ -257,7 +259,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/forgot-password",
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "PUT",
           headers: {
@@ -320,7 +322,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/applications",
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "POST",
           body: formData,
@@ -348,7 +350,7 @@ const handleDeleteUser = async (userId) => {
   const handleMyApplications = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8081/api/applications/${user.email}`
+        fetch("http://localhost:8081/api/jobs")
       );
 
       if (response.ok) {
@@ -394,7 +396,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/jobs",
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "POST",
           headers: {
@@ -441,7 +443,7 @@ const handleDeleteUser = async (userId) => {
   const handleEmployerJobs = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8081/api/jobs"
+        fetch("http://localhost:8081/api/jobs")
       );
 
       if (response.ok) {
@@ -466,7 +468,7 @@ const handleDeleteUser = async (userId) => {
   const handleViewApplications = async (jobId) => {
     try {
       const response = await fetch(
-        `http://localhost:8081/api/applications/job/${jobId}`
+        fetch("http://localhost:8081/api/jobs")
       );
 
       if (response.ok) {
@@ -491,7 +493,7 @@ const handleDeleteUser = async (userId) => {
   ) => {
     try {
       const response = await fetch(
-        `http://localhost:8081/api/applications/${applicationId}/status?status=${status}`,
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "PUT",
         }
@@ -534,7 +536,7 @@ const handleDeleteUser = async (userId) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8081/api/jobs/${jobId}`,
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "DELETE",
         }
@@ -580,7 +582,7 @@ const handleDeleteUser = async (userId) => {
   const handleUpdateJob = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8081/api/jobs/${editJob.id}`,
+        fetch("http://localhost:8081/api/jobs"),
         {
           method: "PUT",
           headers: {
@@ -1202,7 +1204,7 @@ const handleDeleteUser = async (userId) => {
                         <button
                           onClick={() =>
                             window.open(
-                              `http://localhost:8081/api/applications/resume/${encodeURIComponent(
+                              `https://localhost:8081/api/jobs/api/applications/resume/${encodeURIComponent(
                                 application.resumeName
                               )}`,
                               "_blank"
