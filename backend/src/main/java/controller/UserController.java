@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 @CrossOrigin(origins = {
         "http://localhost:5173",
-        "https://online-job-portal-azure.vercel.app"
+        "https://online-job-portal-qwu1-8al0a1103-online-job-portal3.vercel.app"
 })
 public class UserController {
 
