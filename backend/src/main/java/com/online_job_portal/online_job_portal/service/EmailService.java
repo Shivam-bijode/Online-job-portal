@@ -1,19 +1,30 @@
 
 package com.online_job_portal.online_job_portal.service;
 
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Map;
 
 @Service
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    @Value("${resend.api-key}")
+    private String apiKey;
 
-    public EmailService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+    @Value("${resend.from:onboarding@resend.dev}")
+    private String fromEmail;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    private final HttpClient httpClient =
+            HttpClient.newHttpClient();
 
     @Async
     public void sendStatusEmail(
@@ -36,39 +47,67 @@ public class EmailService {
                     (jobTitle == null || jobTitle.isBlank())
                             ? "the job you applied for" : jobTitle;
 
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(to.trim());
+            String subject;
+            String body;
 
             if ("SHORTLISTED".equalsIgnoreCase(status)) {
-                message.setSubject(
-                        "Congratulations! You have been shortlisted");
+                subject =
+                        "Congratulations! You have been shortlisted";
 
-                message.setText(
-                        "Hi " + candidateName + ",\n\n"
-                                + "Congratulations! You have been shortlisted for "
-                                + title + ".\n\n"
-                                + "The recruitment team will contact you with the next steps.\n\n"
-                                + "Regards,\nRecruitment Team");
+                body = "Hi " + candidateName + ",\n\n"
+                        + "Congratulations! You have been shortlisted for "
+                        + title + ".\n\n"
+                        + "The recruitment team will contact you "
+                        + "with the next steps.\n\n"
+                        + "Regards,\nRecruitment Team";
 
             } else if ("REJECTED".equalsIgnoreCase(status)) {
-                message.setSubject("Update on your job application");
+                subject = "Update on your job application";
 
-                message.setText(
-                        "Hi " + candidateName + ",\n\n"
-                                + "Thank you for applying for " + title + ".\n"
-                                + "Unfortunately, we will not be moving forward "
-                                + "with your application at this time.\n\n"
-                                + "We appreciate your interest.\n\n"
-                                + "Regards,\nRecruitment Team");
+                body = "Hi " + candidateName + ",\n\n"
+                        + "Thank you for applying for " + title + ".\n"
+                        + "Unfortunately, we will not be moving forward "
+                        + "with your application at this time.\n\n"
+                        + "We appreciate your interest.\n\n"
+                        + "Regards,\nRecruitment Team";
 
             } else {
                 throw new IllegalArgumentException(
                         "Unsupported status: " + status);
             }
 
-            mailSender.send(message);
-            System.out.println(
-                    "Status email sent successfully to " + to);
+            Map<String, Object> payload = Map.of(
+                    "from", fromEmail,
+                    "to", new String[]{to.trim()},
+                    "subject", subject,
+                    "text", body
+            );
+
+            String json = objectMapper.writeValueAsString(payload);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(
+                            "https://api.resend.com/emails"))
+                    .header("Authorization", "Bearer " + apiKey)
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(
+                    request,
+                    HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() >= 200
+                    && response.statusCode() < 300) {
+                System.out.println(
+                        "Status email accepted by Resend for " + to
+                                + ". Response: " + response.body());
+            } else {
+                System.err.println(
+                        "Resend email API failed. HTTP "
+                                + response.statusCode()
+                                + ": " + response.body());
+            }
 
         } catch (Exception e) {
             System.err.println(

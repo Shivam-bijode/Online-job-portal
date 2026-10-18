@@ -17,7 +17,7 @@ public class JobService {
 
     // Get all jobs
     public List<Job> getAllJobs() {
-        return jobRepository.findAll();
+        return jobRepository.findAllJobsDirectly();
     }
 
     // Create new job
